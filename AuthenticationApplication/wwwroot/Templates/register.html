@@ -1,0 +1,35 @@
+﻿<div ng-controller="RegisterCtrl as register" class="container">
+    <h1 class="form-signin-heading">Register</h1>
+    <p class="help-block">{{error}}</p>
+    <form ng-submit="register.submit()" name="form" class="form-signin fit-width" novalidate>
+        <input name="firstName" ng-model="firstName" type="text" class="form-control" placeholder="First Name" required>
+        <input name="middleName" ng-model="middleName" type="text" class="form-control" placeholder="Middle Name">
+        <input name="lastName" ng-model="lastName" type="text" class="form-control" placeholder="Last Name" required>
+        <select id="country" class="form-control" ng-model="selectedCounrty"
+                ng-change="GetSelectedCountry()" required>
+            <option value=''>Select</option>
+            <option value="{{country}}" ng-repeat="(country, states) in countries">{{country}}</option>
+        </select>
+        <select id="state" class="form-control" ng-model="selectedState" ng-disabled="!selectedCounrty"
+                ng-change="GetSelectedState(stateSrc)" required>
+            <option value=''>Select</option>
+            <option value="{{state}}" ng-repeat="(state, city) in strCountry">{{state}}</option>
+        </select>
+        <input name="email" ng-model="email" type="email" class="form-control" placeholder="Email address" required>
+        <p class="help-block" ng-show="form.email.$dirty && form.email.$invalid">Please enter a proper email.</p>
+        <input name="password" ng-model="password" type="password" class="form-control" placeholder="Password" required>
+        <input name="password_confirm" ng-model="password_confirm" type="password" class="form-control" placeholder="Confirm Password"
+               validate-equals='password'>
+        <div class="checkbox">
+            <label>
+                <input name="accetTnc" ng-model="accetTnc" type="checkbox">By checking this, i accept the Terms and conditions
+            </label>
+        </div>
+        <p class="help-block" ng-show="form.password_confirm.$dirty && password_confirm != password">please match the passwords.</p>
+        <button ng-disabled="(!form.email.$dirty || form.email.$invalid) || (!form.password_confirm.$dirty || password_confirm != password)
+                || (form.$invalid) || !(accetTnc)"
+                class="btn btn-lg btn-primary btn-block" type="submit">
+            Submit
+        </button>
+    </form>
+</div>

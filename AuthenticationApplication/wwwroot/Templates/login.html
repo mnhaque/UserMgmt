@@ -1,0 +1,10 @@
+﻿<div ng-controller="LoginCtrl as login" class="container">
+    <form ng-submit="login.submit()" name="form" class="form-signin fit-width" novalidate>
+        <h1 class="form-signin-heading text-muted">Login</h1>
+        <input name="email" ng-model="email" type="email" class="form-control" placeholder="Email address" required>
+        <p class="help-block" ng-show="form.email.$dirty && form.email.$invalid">Please enter a proper email.</p>
+        <input name="password" ng-model="password" type="password" class="form-control" placeholder="Password" required>
+        <button ng-disabled="form.$invalid" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <p class="help-block" ng-show="invalidCredentials">Invalid Credentials.</p>
+    </form>
+</div>

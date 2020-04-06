@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div ng-controller="HeaderCtrl" class="header">
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="/#!/login">Login</a>
+        </li>
+        <li>
+            <a href="/#!/register">Register</a>
+        </li>
+        <li>
+            <a href='@Url.Action("Index","FindDetails")'>Find Users</a>
+        </li>
+    </ul>
+</div>
+<div ng-view>
+</div>

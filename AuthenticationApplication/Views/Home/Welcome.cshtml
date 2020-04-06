@@ -1,0 +1,8 @@
+﻿@model AuthenticationApplication.Models.User
+
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome  @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
